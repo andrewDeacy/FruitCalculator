@@ -14,8 +14,6 @@ namespace FruitCalculator
 
         public double CalculateBasketTotal(Basket basket)
         {
-            // I took the assumption that for a given basket item:
-            // itemPrice > 0 (non-negative) & itemCount > 0 (non-negative)
             var price = basket?.CalculateBasketPrice(_logger) ?? 0.0;
             return price;
         }
