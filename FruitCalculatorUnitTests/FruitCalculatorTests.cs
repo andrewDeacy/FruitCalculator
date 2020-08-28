@@ -20,16 +20,16 @@ namespace FruitCalculatorUnitTests
         }
 
         [DataTestMethod]
-        [DataRow(data1: TenFullPriceApples, 50)] 
-        [DataRow(data1: TenFullPriceOranges, 100)]
-        [DataRow(data1: FiveHalfPriceApples, 12.5)]
-        [DataRow(data1: FiveHalfPriceOranges, 25)]
-        [DataRow(data1: FiveHalfPriceUnknownFruits, 5)]
-        [DataRow(data1: NullFruitType, 0)]
-        [DataRow(data1: NullItemCount, 0)]
-        [DataRow(data1: DefaultPromoRate, 10)]
-        [DataRow(data1: EmptyBasketItem, 0)]
-        [DataRow(data1: NullBasketItem, 0)]
+        [DataRow(TenFullPriceApples, 50)] 
+        [DataRow(TenFullPriceOranges, 100)]
+        [DataRow(FiveHalfPriceApples, 12.5)]
+        [DataRow(FiveHalfPriceOranges, 25)]
+        [DataRow(FiveHalfPriceUnknownFruits, 5)]
+        [DataRow(NullFruitType, 0)]
+        [DataRow(NullItemCount, 0)]
+        [DataRow(DefaultPromoRate, 10)]
+        [DataRow(EmptyBasketItem, 0)]
+        [DataRow(NullBasketItem, 0)]
         public void ShouldCalculateBasketItemPrice(int basketItemIndex, double expectedCost)
         {
             var basketItem = MockData.MockBasketItems[basketItemIndex];
@@ -42,10 +42,10 @@ namespace FruitCalculatorUnitTests
             _mockLogger.Verify(mockLog => mockLog.Log(expectedLog), Times.Once);
         }
 
-        [DataRow(data1: TenFullPriceApples, TenFullPriceApples, TenFullPriceApples, 150)] 
-        [DataRow(data1: TenFullPriceOranges, TenFullPriceOranges, TenFullPriceOranges, 300)] 
-        [DataRow(data1: TenFullPriceOranges, TenFullPriceOranges, FiveHalfPriceUnknownFruits, 205)] 
-        [DataRow(data1: TenFullPriceApples, NullBasketItem, DefaultPromoRate, 60)] 
+        [DataRow(TenFullPriceApples, TenFullPriceApples, TenFullPriceApples, 150)] 
+        [DataRow(TenFullPriceOranges, TenFullPriceOranges, TenFullPriceOranges, 300)] 
+        [DataRow(TenFullPriceOranges, TenFullPriceOranges, FiveHalfPriceUnknownFruits, 205)] 
+        [DataRow(TenFullPriceApples, NullBasketItem, DefaultPromoRate, 60)] 
         [DataTestMethod]
         public void ShouldCalculateBasketPrice(int firstItemIndex, int secondItemIndex, int thirdItemIndex, double actualPrice)
         {
